@@ -1,0 +1,31 @@
+.shiny-ball {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: relative;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
+  box-shadow: inset 0px 2px 7px white;
+
+  > div {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    padding: 2px;
+
+    .reflection {
+      width: 40px;
+      height: 30px;
+      background: white;
+      border-radius: 4em/3em;
+      opacity: .3;
+    }
+  }
+}

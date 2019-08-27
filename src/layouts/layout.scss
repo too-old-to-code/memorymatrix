@@ -1,0 +1,62 @@
+$hamburger-padding-x           : 16px;
+$hamburger-padding-y           : 20px;
+$hamburger-layer-width         : 23px;
+$hamburger-layer-height        : 3px;
+$hamburger-layer-spacing       : 4px;
+$hamburger-layer-color         : white;
+$hamburger-layer-border-radius : 4px;
+$hamburger-hover-opacity       : 0.7;
+
+$hamburger-padding-x           : 0px;
+$hamburger-padding-y           : 0px;
+$hamburger-layer-width         : 23px;
+$hamburger-layer-height        : 3px;
+$hamburger-layer-spacing       : 4px;
+$hamburger-layer-color         : white;
+$hamburger-layer-border-radius : 4px;
+$hamburger-hover-opacity       : 0.7;
+
+// $break-point: 1022px;
+$navbar-height: 60px;
+
+.hamburger .hamburger-inner {
+  &,
+  &::before,
+  &::after {
+    transition-duration: all 0;
+  }
+}
+@import "~hamburgers/_sass/hamburgers/hamburgers.scss";
+
+.hamburger {
+  display: flex;
+  outline: none;
+}
+
+.hamburger .hamburger-inner {
+  &,
+  &::before,
+  &::after {
+    transition-duration: all 0;
+  }
+}
+
+
+.navbar {
+  height: $navbar-height;
+  z-index: 9;
+  position: fixed;
+  width: 100%;
+}
+
+.app-menu {
+  padding-top: $navbar-height !important;
+}
+.Select-menu-outer {
+position: relative;
+}
+// @media screen and (min-width: $break-point) {
+//   .hamburger {
+//     display: none !important;
+//   }
+// }

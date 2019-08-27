@@ -1,0 +1,31 @@
+---
+- number: 0
+  sound: s or z
+  description: This is the description
+- number: 1
+  sound: d or t
+  description: Both d and t have a single downstroke when writing the character.
+- number: 2
+  sound: n
+  description: The letter n has two downstrokes when writing the character.
+- number: 3
+  sound: m
+  description: The letter m has three downstrokes when writing the character.
+- number: 4
+  sound: r
+  description: This is the description
+- number: 5
+  sound: l
+  description: This is the description
+- number: 6
+  sound: g or j
+  description: This is the description
+- number: 7
+  sound: k
+  description: This is the description
+- number: 8
+  sound: f
+  description: This is the description
+- number: 9
+  sound: p or b
+  description: This is the description

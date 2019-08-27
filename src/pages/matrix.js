@@ -1,5 +1,5 @@
 import React from "react"
-import WordPane from '../components/word-pane-hooks'
+import WordPane from '../components/word-pane'
 import { Box } from 'grommet'
 import { graphql } from 'gatsby'
 
@@ -26,7 +26,7 @@ const Matrix = ({data}) => {
 export default Matrix
 
 export const query = graphql`
-  query testPageQuery {
+  query matrixPageQuery {
     allWordsYaml {
       nodes {
         num

@@ -1,0 +1,229 @@
+---
+- num: 0
+  word:
+    default: saw
+    alternatives:
+    - saw
+    - sore
+    - sow
+    - sew
+    - sue
+    - see
+    - say
+    - sigh
+- num: 1
+  word:
+    default: toe
+    alternatives:
+    - toe
+    - tow
+    - tea
+    - tee
+    - tie
+- num: 2
+  word:
+    default: knee
+    alternatives:
+    - knee
+    - know
+- num: 3
+  word:
+    default: moe
+    alternatives:
+    - may
+    - moo
+    - my
+    - moe
+- num: 4
+  word:
+    default: ray
+    alternatives:
+    - row
+    - ray
+    - rye
+    - ra
+- num: 5
+  word:
+    default: loo
+    alternatives:
+    - loo
+    - lie
+    - lee
+    - low
+- num: 6
+  word:
+    default: joe
+    alternatives:
+    - joe
+    - jay
+    - jew
+- num: 7
+  word:
+    default: key
+    alternatives:
+    - key
+- num: 8
+  word:
+    default: foe
+    alternatives:
+    - foe
+- num: 9
+  word:
+    default: poo
+    alternatives:
+    - poo
+- num: 10
+  word:
+    default: dice
+    alternatives:
+    - dice
+- num: 11
+  word:
+    default: dad
+    alternatives:
+    - dad
+- num: 12
+  word:
+    default: den
+    alternatives:
+    - den
+- num: 13
+  word:
+    default: dam
+    alternatives:
+    - dam
+- num: 14
+  word:
+    default: door
+    alternatives:
+    - door
+- num: 15
+  word:
+    default: doll
+    alternatives:
+    - doll
+- num: 16
+  word:
+    default: dodge
+    alternatives:
+    - dodge
+- num: 17
+  word:
+    default: duck
+    alternatives:
+    - duck
+- num: 18
+  word:
+    default: deaf
+    alternatives:
+    - deaf
+- num: 19
+  word:
+    default: dab
+    alternatives:
+    - dab
+- num: 20
+  word:
+    default: nose
+    alternatives:
+    - nose
+- num: 21
+  word:
+    default: net
+    alternatives:
+    - net
+- num: 22
+  word:
+    default: nan
+    alternatives:
+    - nan
+- num: 23
+  word:
+    default: gnome
+    alternatives:
+    - gnome
+- num: 24
+  word:
+    default: near
+    alternatives:
+    - near
+- num: 25
+  word:
+    default: nail
+    alternatives:
+    - nail
+- num: 26
+  word:
+    default: nudge
+    alternatives:
+    - nudge
+- num: 27
+  word:
+    default: neck
+    alternatives:
+    - neck
+- num: 28
+  word:
+    default: knife
+    alternatives:
+    - knife
+- num: 29
+  word:
+    default: knob
+    alternatives:
+    - knob
+- num: 30
+  word:
+    default: mace
+    alternatives:
+    - mace
+- num: 31
+  word:
+    default: meat
+    alternatives:
+    - meat
+- num: 32
+  word:
+    default: mean
+    alternatives:
+    - mean
+- num: 33
+  word:
+    default: meme
+    alternatives:
+    - meme
+- num: 34
+  word:
+    default: moor
+    alternatives:
+    - moor
+- num: 35
+  word:
+    default: mill
+    alternatives:
+    - mill
+- num: 36
+  word:
+    default: match
+    alternatives:
+    - match
+- num: 37
+  word:
+    default: mic (microphone)
+    alternatives:
+    - mic (microphone)
+- num: 38
+  word:
+    default: muff
+    alternatives:
+    - muff
+- num: 39
+  word:
+    default: mob
+    alternatives:
+    - mob
+- num: 40
+  word:
+    default: rose
+    alternatives:
+    - rose
