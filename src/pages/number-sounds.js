@@ -1,6 +1,5 @@
 import React from "react"
 import { Accordion, AccordionPanel, Box } from 'grommet';
-import { ChatOption } from 'grommet-icons'
 import PanelHeader from '../components/panel-header'
 import { graphql } from 'gatsby'
 

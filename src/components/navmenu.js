@@ -21,7 +21,7 @@ const items = [
   { name: 'How to use', url: '/page-2' },
   { name: 'Number sounds', url: '/number-sounds' },
   { name: 'Matrix', url: '/matrix' },
-  { name: 'Revision', url: '/404' },
+  { name: 'Revision', url: '/revision' },
 ]
 
 const NavMenu = (props) => {
