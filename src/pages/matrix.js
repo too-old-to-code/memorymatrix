@@ -15,22 +15,12 @@ const Matrix = ({data}) => {
       overflow="scroll"
     >
     {
-      // appState.words.filter(word => word.num >= appState.matrixPage && word.num < (appState.matrixPage + 10))
-      //   .map(word =>
-      //     <WordPane
-      //       num={word.num}
-      //       word={word.word}
-      //       key={word.num}
-      //     />
-      //   )
-    }
-    {
-      appState.words.filter((word,i) => i >= appState.matrixPage && i < (appState.matrixPage + 10))
+      appState.defaultValues.filter((word) => word.num >= appState.matrixPage && word.num < (appState.matrixPage + 10))
         .map(word =>
           <WordPane
-            num={i}
-            word={word}
-            key={word}
+            num={word.num}
+            word={word.value}
+            key={word.value}
           />
         )
     }

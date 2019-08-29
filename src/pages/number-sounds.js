@@ -39,5 +39,14 @@ export const query = graphql`
         description
       }
     }
+    allWordsYaml {
+      nodes {
+        num
+        word {
+          alternatives
+          default
+        }
+      }
+    }
   }
 `

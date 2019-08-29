@@ -7,30 +7,23 @@ import { AppProvider } from '../app-context'
 // import { useStaticQuery, graphql } from "gatsby"
 import { graphql } from 'gatsby'
 
-const createOption = (label, isInitial) => ({
+const createOption = (label, num, isInitial) => ({
   label,
   value: label.toLowerCase().replace(/\W/g, ''),
-  custom: !isInitial
+  custom: !isInitial,
+  num
 });
 
 const Layout = ({ children, location, data }) => {
   let [page, changePage] = useState(0)
   let [revisionPage, changeRevisionPage] = useState(0)
 
-
   const initialState = {
     revisionPage: 0,
     matrixPage: 0,
-    words: data.allWordsYaml.nodes,
-    other: data.allWordsYaml.nodes.map(s => {
-
-    }),
-    test: data.allWordsYaml.nodes.map((s) => {
-      return {
-        options: s.word.alternatives.map(word => createOption(word, true)),
-        default: createOption(s.word.default, true)
-      }
-    })
+    // words: data.allWordsYaml.nodes,
+    wordOptions: data.allWordsYaml.nodes.map(({word, num}) => word.alternatives.map(a => createOption(a, num, true))),
+    defaultValues: data.allWordsYaml.nodes.map(({word, num}, i) => createOption(word.default, num, true))
   }
 
   const reducer = (state, action) => {
@@ -39,21 +32,23 @@ const Layout = ({ children, location, data }) => {
         return { ...state, revisionPage: state.revisionPage + action.payload }
       case 'change_matrix_page':
         return { ...state, matrixPage: state.matrixPage + action.payload }
-      case 'change':
-        const test = state.test.slice()
-        test[action.payload.num].default = action.payload.val
+      case 'change':{
+        const defaultValues = state.defaultValues.slice()
+        defaultValues[action.payload.num] = action.payload.val
         return {
           ...state,
-          test
+          defaultValues
         }
-      case 'create':
-        const newOption = createOption(action.payload)
-        state.options = state.options.filter(opt => !opt.custom)
+      }
+      case 'create': {
+        const newOption = createOption(action.payload.val, action.payload.num)
+        const defaultValues = state.defaultValues.slice()
+        defaultValues[action.payload.num] = newOption
         return {
           ...state,
-          options: state.options.concat(newOption),
-          value: newOption
+          defaultValues
         }
+      }
       default:
         return state
     }
@@ -109,16 +104,16 @@ const Layout = ({ children, location, data }) => {
 
 export default Layout
 
-export const query = graphql`
-  query layoutPageQuery {
-    allWordsYaml {
-      nodes {
-        num
-        word {
-          alternatives
-          default
-        }
-      }
-    }
-  }
-`
+// export const query = graphql`
+//   query layoutPageQuery {
+//     allWordsYaml {
+//       nodes {
+//         num
+//         word {
+//           alternatives
+//           default
+//         }
+//       }
+//     }
+//   }
+// `
