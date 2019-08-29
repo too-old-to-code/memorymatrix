@@ -5,14 +5,32 @@ import { Grommet } from 'grommet'
 import Navbar from '../components/navbar'
 import { AppProvider } from '../app-context'
 // import { useStaticQuery, graphql } from "gatsby"
+import { graphql } from 'gatsby'
 
-const Layout = ({ children, location }) => {
+const createOption = (label, isInitial) => ({
+  label,
+  value: label.toLowerCase().replace(/\W/g, ''),
+  custom: !isInitial
+});
+
+const Layout = ({ children, location, data }) => {
   let [page, changePage] = useState(0)
   let [revisionPage, changeRevisionPage] = useState(0)
 
+
   const initialState = {
     revisionPage: 0,
-    matrixPage: 0
+    matrixPage: 0,
+    words: data.allWordsYaml.nodes,
+    other: data.allWordsYaml.nodes.map(s => {
+
+    }),
+    test: data.allWordsYaml.nodes.map((s) => {
+      return {
+        options: s.word.alternatives.map(word => createOption(word, true)),
+        default: createOption(s.word.default, true)
+      }
+    })
   }
 
   const reducer = (state, action) => {
@@ -21,6 +39,21 @@ const Layout = ({ children, location }) => {
         return { ...state, revisionPage: state.revisionPage + action.payload }
       case 'change_matrix_page':
         return { ...state, matrixPage: state.matrixPage + action.payload }
+      case 'change':
+        const test = state.test.slice()
+        test[action.payload.num].default = action.payload.val
+        return {
+          ...state,
+          test
+        }
+      case 'create':
+        const newOption = createOption(action.payload)
+        state.options = state.options.filter(opt => !opt.custom)
+        return {
+          ...state,
+          options: state.options.concat(newOption),
+          value: newOption
+        }
       default:
         return state
     }
@@ -75,3 +108,17 @@ const Layout = ({ children, location }) => {
 }
 
 export default Layout
+
+export const query = graphql`
+  query layoutPageQuery {
+    allWordsYaml {
+      nodes {
+        num
+        word {
+          alternatives
+          default
+        }
+      }
+    }
+  }
+`

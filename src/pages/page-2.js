@@ -5,11 +5,8 @@ import { graphql } from 'gatsby'
 import AppContext from '../app-context'
 
 const Matrix = ({data}) => {
-  const [pageNum, setPageNum] = React.useState(0)
   const list = data.allWordsYaml.nodes
-  const {page, changePage} = useContext(AppContext)
-  console.log(page)
-  // changePage(page + 10)
+  const {appState, dispatch} = useContext(AppContext)
 
   return (
     <Box
@@ -18,7 +15,7 @@ const Matrix = ({data}) => {
       overflow="scroll"
     >
     {
-      list.filter(word => word.num >= page && word.num < (page + 10))
+      list.filter(word => word.num >= appState.matrixPage && word.num < (appState.matrixPage + 10))
         .map(word =>
           <WordPane num={word.num} word={word.word} key={word.num}/>
         )
@@ -30,7 +27,7 @@ const Matrix = ({data}) => {
 export default Matrix
 
 export const query = graphql`
-  query testPageQuery {
+  query matrix2PageQuery {
     allWordsYaml {
       nodes {
         num
