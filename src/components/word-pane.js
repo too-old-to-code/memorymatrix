@@ -67,7 +67,7 @@ export default ({ num, word }) => {
         </Box>
         <Box fill={true}>
           <Creatable
-          escapeClearsValue={true}
+            escapeClearsValue={true}
             value={state.value}
             onChange={(val) => dispatch({ type: 'change', payload: val})}
             onCreateOption={(val) => dispatch({ type: 'create', payload: val})}

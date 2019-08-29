@@ -1,3 +1,4 @@
+import './revision.scss'
 import React, { useContext } from 'react'
 import { Box, Grid, Text } from 'grommet'
 import AppContext from '../app-context'
@@ -25,10 +26,12 @@ const generateCards = (num) => {
 }
 
 export default () => {
-  const {revisionPage, changeRevisionPage} = useContext(AppContext)
+  const {appState, dispatch} = useContext(AppContext)
+
   return (
     <Grid
-      margin="small"
+      className="revision-grid"
+      margin={{ horizontal: 'small' }}
       rows={['xxsmall', 'xxsmall', 'xxsmall', 'xxsmall', 'xxsmall']}
       columns={['flex', 'flex', 'flex', 'flex', 'flex']}
       gap="small"
@@ -36,7 +39,7 @@ export default () => {
       justify="stretch"
     >
       {
-        generateCards(revisionPage)
+        generateCards(appState.revisionPage)
       }
     </Grid>
   )

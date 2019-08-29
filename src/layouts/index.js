@@ -1,6 +1,6 @@
 import './layout.css'
 import './layout.scss'
-import React, { useState } from 'react'
+import React, { useState, useReducer } from 'react'
 import { Grommet } from 'grommet'
 import Navbar from '../components/navbar'
 import { AppProvider } from '../app-context'
@@ -9,21 +9,27 @@ import { AppProvider } from '../app-context'
 const Layout = ({ children, location }) => {
   let [page, changePage] = useState(0)
   let [revisionPage, changeRevisionPage] = useState(0)
-  console.log(location)
-  // const data = useStaticQuery(graphql`
-  //   query SiteTitleQuery {
-  //     site {
-  //       siteMetadata {
-  //         title
-  //       }
-  //     }
-  //   }
-  //
-  // let a = {name: 'jimmy'}
 
+  const initialState = {
+    revisionPage: 0,
+    matrixPage: 0
+  }
+
+  const reducer = (state, action) => {
+    switch (action.type) {
+      case 'change_revision_page':
+        return { ...state, revisionPage: state.revisionPage + action.payload }
+      case 'change_matrix_page':
+        return { ...state, matrixPage: state.matrixPage + action.payload }
+      default:
+        return state
+    }
+  }
+
+  let [appState, dispatch] = useReducer(reducer, initialState)
 
   return (
-    <AppProvider value={{ page, changePage, revisionPage, changeRevisionPage }}>
+    <AppProvider value={{ appState, dispatch }}>
       <Grommet
         theme={{
           global: {

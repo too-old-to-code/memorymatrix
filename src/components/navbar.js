@@ -7,7 +7,7 @@ import AppContext from '../app-context'
 
 const Navbar = ({location}) => {
   const [show, setShow] = React.useState();
-  const {page, changePage, revisionPage, changeRevisionPage} = useContext(AppContext)
+  const { appState, dispatch } = useContext(AppContext)
 
   return (
     <>
@@ -41,20 +41,20 @@ const Navbar = ({location}) => {
         >
           <Box width="40px">
           {
-            page >= 10 && <FormPrevious
+            appState.matrixPage >= 10 && <FormPrevious
               color="white"
               style={{width: '40px', height: '35px'}}
-              onClick={() => changePage(page - 10)}
+              onClick={() => dispatch({type: 'change_matrix_page', payload: -10})}
             />
           }
           </Box>
-          <Text size="large" color="white">{page}-{page + 9}</Text>
+          <Text size="large" color="white">{appState.matrixPage}-{appState.matrixPage + 9}</Text>
           <Box width="40px">
           {
-            page <= 89 && <FormNext
+            appState.matrixPage <= 89 && <FormNext
               color="white"
               style={{width: '40px', height: '35px'}}
-              onClick={() => changePage(page + 10)}
+              onClick={() => dispatch({type: 'change_matrix_page', payload: 10})}
             />
           }
           </Box>
@@ -67,20 +67,20 @@ const Navbar = ({location}) => {
         >
           <Box width="40px">
           {
-            revisionPage >= 24 && <FormPrevious
+            appState.revisionPage >= 24 && <FormPrevious
               color="white"
               style={{width: '40px', height: '35px'}}
-              onClick={() => changeRevisionPage(revisionPage - 25)}
+              onClick={() => dispatch({type: 'change_revision_page', payload: -25})}
             />
           }
           </Box>
-          <Text size="large" color="white">{revisionPage}-{revisionPage + 24}</Text>
+          <Text size="large" color="white">{appState.revisionPage}-{appState.revisionPage + 24}</Text>
           <Box width="40px">
           {
-            revisionPage <= 74 && <FormNext
+            appState.revisionPage <= 74 && <FormNext
               color="white"
               style={{width: '40px', height: '35px'}}
-              onClick={() => changeRevisionPage(revisionPage + 25)}
+              onClick={() => dispatch({type: 'change_revision_page', payload: 25})}
             />
           }
           </Box>
