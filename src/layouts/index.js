@@ -1,6 +1,6 @@
 import './layout.css'
 import './layout.scss'
-import React, { useReducer, useEffect } from 'react'
+import React, { useReducer, useEffect, useState } from 'react'
 import { Grommet } from 'grommet'
 import Navbar from '../components/navbar'
 import { AppProvider } from '../app-context'
@@ -49,9 +49,10 @@ const Layout = ({ children, location, data }) => {
   }
 
   let [appState, dispatch] = useReducer(reducer, initialState)
+  let [ready, setReady] = useState(false)
 
   useEffect(() => {
-
+    setReady(true)
     if (!localStorage.hasOwnProperty('default-values')) {
       localStorage.setItem('default-values', JSON.stringify(initialState.defaultValues))
     }
@@ -67,6 +68,8 @@ const Layout = ({ children, location, data }) => {
 
   }, [])
 
+
+  if (!ready) return null
 
   return (
     <AppProvider value={{ appState, dispatch }}>

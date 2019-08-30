@@ -3,6 +3,7 @@ import { Box, Layer, Text } from 'grommet'
 import cx from 'classnames'
 import NavMenu from './navmenu'
 import { FormNext, FormPrevious } from 'grommet-icons'
+import Helmet from 'react-helmet'
 import AppContext from '../app-context'
 
 const Navbar = ({location}) => {
@@ -11,6 +12,7 @@ const Navbar = ({location}) => {
 
   return (
     <>
+    <Helmet title="Memory-matrix" />
     <Box align='center' justify="center" width="36px" height="100%" style={{position: 'fixed', zIndex: 100, top: 0, left: 0, height: '60px', width: '50px'}}>
       <button
         className={cx('hamburger hamburger--spin', {'is-active': show})}
