@@ -18,7 +18,7 @@ const MenuItem = (props) => {
 }
 
 const items = [
-  { name: 'How to use', url: '/page-2' },
+  { name: 'How to use', url: '/' },
   { name: 'Number sounds', url: '/number-sounds' },
   { name: 'Matrix', url: '/matrix' },
   { name: 'Revision', url: '/revision' },

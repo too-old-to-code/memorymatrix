@@ -1,31 +1,49 @@
-import './revision.scss'
-import React, { useContext } from 'react'
+// import './revision.scss'
+import React, { useContext, useState } from 'react'
 import { Box, Grid, Text } from 'grommet'
 import AppContext from '../app-context'
 
 export default () => {
   const {appState} = useContext(AppContext)
+  const [ currentWord, changeWord ]= useState('')
 
   return (
+    <Box
+      align="center"
+      justify="center"
+    >
+      <Box
+        height="xsmall"
+        align="center"
+        justify="center"
+      >
+      <Text size="xxlarge">{currentWord}</Text>
+      </Box>
     <Grid
-      className="revision-grid"
       margin={{ horizontal: 'small' }}
       rows={['xxsmall', 'xxsmall', 'xxsmall', 'xxsmall', 'xxsmall']}
       columns={['flex', 'flex', 'flex', 'flex', 'flex']}
       gap="small"
       justifyContent="center"
       justify="stretch"
+      style={{minWidth: '300px'}}
     >
       {
         appState.defaultValues.filter((word) => word.num >= appState.revisionPage && word.num < (appState.revisionPage + 25))
-          .map(wordObj =>
+          .map((wordObj, index) =>
           <Box
+            role="button"
             key={wordObj.value}
-            style={{border: 'solid 1px grey'}}
             align="center"
             justify="center"
-            background="light-4"
+            background={ currentWord === wordObj.label ?  "orange" : "#6573af" }
+            color="white"
+            border="all"
+            round={true}
+            onClick={() => changeWord(wordObj.label)}
+            activeIndex={index}
           >
+
           <Text
             background="brand"
             weight="bold"
@@ -35,6 +53,7 @@ export default () => {
         )
       }
     </Grid>
+    </Box>
   )
 }
 

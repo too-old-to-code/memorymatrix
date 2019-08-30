@@ -3,13 +3,7 @@ import { Box, Text } from 'grommet'
 import Creatable from 'react-select/creatable';
 import AppContext from '../app-context'
 
-const createOption = (label, isInitial) => ({
-  label,
-  value: label.toLowerCase().replace(/\W/g, ''),
-  custom: !isInitial
-});
-
-export default ({ num, word }) => {
+const WordPane = ({ num, word }) => {
   const {appState, dispatch} = useContext(AppContext)
 
   return (
@@ -55,3 +49,5 @@ export default ({ num, word }) => {
     </Box>
   )
 }
+
+export default WordPane

@@ -1,12 +1,11 @@
 import './layout.css'
 import './layout.scss'
-import React, { useState, useReducer } from 'react'
+import React, { useReducer, useEffect } from 'react'
 import { Grommet } from 'grommet'
 import Navbar from '../components/navbar'
 import { AppProvider } from '../app-context'
-// import { useStaticQuery, graphql } from "gatsby"
-import { graphql } from 'gatsby'
 
+// shape the option so that it works with the select fields
 const createOption = (label, num, isInitial) => ({
   label,
   value: label.toLowerCase().replace(/\W/g, ''),
@@ -15,39 +14,34 @@ const createOption = (label, num, isInitial) => ({
 });
 
 const Layout = ({ children, location, data }) => {
-  let [page, changePage] = useState(0)
-  let [revisionPage, changeRevisionPage] = useState(0)
 
   const initialState = {
     revisionPage: 0,
     matrixPage: 0,
-    // words: data.allWordsYaml.nodes,
     wordOptions: data.allWordsYaml.nodes.map(({word, num}) => word.alternatives.map(a => createOption(a, num, true))),
     defaultValues: data.allWordsYaml.nodes.map(({word, num}, i) => createOption(word.default, num, true))
   }
 
-  const reducer = (state, action) => {
-    switch (action.type) {
+  const reducer = (state, { payload, type }) => {
+    switch (type) {
+      case 'set_defaults':
+        return { ...state, defaultValues: payload }
       case 'change_revision_page':
-        return { ...state, revisionPage: state.revisionPage + action.payload }
+        return { ...state, revisionPage: state.revisionPage + payload }
       case 'change_matrix_page':
-        return { ...state, matrixPage: state.matrixPage + action.payload }
+        return { ...state, matrixPage: state.matrixPage + payload }
       case 'change':{
         const defaultValues = state.defaultValues.slice()
-        defaultValues[action.payload.num] = action.payload.val
-        return {
-          ...state,
-          defaultValues
-        }
+        defaultValues[payload.num] = payload.val
+        localStorage.setItem('default-values', JSON.stringify(defaultValues))
+        return { ...state, defaultValues }
       }
       case 'create': {
-        const newOption = createOption(action.payload.val, action.payload.num)
+        const newOption = createOption(payload.val, payload.num)
         const defaultValues = state.defaultValues.slice()
-        defaultValues[action.payload.num] = newOption
-        return {
-          ...state,
-          defaultValues
-        }
+        defaultValues[payload.num] = newOption
+        localStorage.setItem('default-values', JSON.stringify(defaultValues))
+        return { ...state, defaultValues }
       }
       default:
         return state
@@ -55,6 +49,24 @@ const Layout = ({ children, location, data }) => {
   }
 
   let [appState, dispatch] = useReducer(reducer, initialState)
+
+  useEffect(() => {
+
+    if (!localStorage.hasOwnProperty('default-values')) {
+      localStorage.setItem('default-values', JSON.stringify(initialState.defaultValues))
+    }
+
+    let defaultValues = localStorage.getItem('default-values')
+
+    try {
+      initialState.defaultValues = JSON.parse(defaultValues)
+      dispatch({ type: 'set_defaults', payload: initialState.defaultValues})
+    } catch (err) {
+      console.error('Could not parse the default values from localStorage')
+    }
+
+  }, [])
+
 
   return (
     <AppProvider value={{ appState, dispatch }}>
@@ -87,8 +99,6 @@ const Layout = ({ children, location, data }) => {
         <div
           style={{
             margin: `0 auto`,
-            // maxWidth: 960,
-            // padding: `0px 1.0875rem 1.45rem`,
             paddingTop: 0,
             overflow: 'hidden'
           }}
@@ -103,17 +113,3 @@ const Layout = ({ children, location, data }) => {
 }
 
 export default Layout
-
-// export const query = graphql`
-//   query layoutPageQuery {
-//     allWordsYaml {
-//       nodes {
-//         num
-//         word {
-//           alternatives
-//           default
-//         }
-//       }
-//     }
-//   }
-// `

@@ -5,8 +5,7 @@ import { graphql } from 'gatsby'
 import AppContext from '../app-context'
 
 const Matrix = ({data}) => {
-  // const list = data.allWordsYaml.nodes
-  const {appState, dispatch} = useContext(AppContext)
+  const { appState } = useContext(AppContext)
 
   return (
     <Box
@@ -20,7 +19,7 @@ const Matrix = ({data}) => {
           <WordPane
             num={word.num}
             word={word.value}
-            key={word.value}
+            key={word.num}
           />
         )
     }
