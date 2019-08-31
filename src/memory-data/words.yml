@@ -6,19 +6,12 @@
     - saw
     - sore
     - sow
-    - sew
-    - sue
-    - see
-    - say
-    - sigh
 - num: 1
   word:
     default: toe
     alternatives:
     - toe
-    - tow
     - tea
-    - tee
     - tie
 - num: 2
   word:
@@ -32,7 +25,6 @@
     alternatives:
     - may
     - moo
-    - my
     - moe
 - num: 4
   word:
@@ -48,7 +40,6 @@
     alternatives:
     - loo
     - lie
-    - lee
     - low
 - num: 6
   word:
@@ -227,3 +218,364 @@
     default: rose
     alternatives:
     - rose
+- num: 41
+  word:
+    default: rat
+    alternatives:
+    - rat
+- num: 42
+  word:
+    default: rain
+    alternatives:
+    - rain
+- num: 43
+  word:
+    default: ram
+    alternatives:
+    - ram
+- num: 44
+  word:
+    default: roar
+    alternatives:
+    - roar
+    - rare
+    - rear
+- num: 45
+  word:
+    default: rail
+    alternatives:
+    - rail
+    - role
+- num: 46
+  word:
+    default: rage
+    alternatives:
+    - rage
+    - raj
+    - wretch
+- num: 47
+  word:
+    default: rack
+    alternatives:
+    - rack
+- num: 48
+  word:
+    default: rough
+    alternatives:
+    - rough
+    - rife
+    - RAF
+- num: 49
+  word:
+    default: rap
+    alternatives:
+    - rap
+- num: 50
+  word:
+    default: lace
+    alternatives:
+    - lace
+
+- num: 51
+  word:
+    default: lad
+    alternatives:
+    - lad
+    - late
+    - lid
+- num: 52
+  word:
+    default: lane
+    alternatives:
+    - lane
+    - loan
+    - line
+- num: 53
+  word:
+    default: lamb
+    alternatives:
+    - lamb
+    - limb
+    - lime
+- num: 54
+  word:
+    default: lair
+    alternatives:
+    - lair
+    - liar
+    - lyre
+- num: 55
+  word:
+    default: lily
+    alternatives:
+    - lily
+    - LOL
+- num: 56
+  word:
+    default: leech
+    alternatives:
+    - leech
+    - latch
+    - lodge
+- num: 57
+  word:
+    default: lake
+    alternatives:
+    - lake
+    - lick
+    - luck
+- num: 58
+  word:
+    default: life
+    alternatives:
+    - life
+    - love
+- num: 59
+  word:
+    default: lab
+    alternatives:
+    - lab
+    - lip
+- num: 60
+  word:
+    default: chase
+    alternatives:
+    - chase
+    - juice
+- num: 61
+  word:
+    default: chat
+    alternatives:
+    - chat
+- num: 62
+  word:
+    default: chain
+    alternatives:
+    - chain
+- num: 63
+  word:
+    default: gym
+    alternatives:
+    - chime
+    - gym
+- num: 64
+  word:
+    default: chair
+    alternatives:
+    - chair
+    - chore
+- num: 65
+  word:
+    default: cello
+    alternatives:
+    - cello
+    - jail
+- num: 66
+  word:
+    default: judge
+    alternatives:
+    - judge
+- num: 67
+  word:
+    default: check
+    alternatives:
+    - check
+    - joke
+- num: 68
+  word:
+    default: chief
+    alternatives:
+    - chaff
+    - chief
+- num: 69
+  word:
+    default: chop
+    alternatives:
+    - chop
+    - chap
+- num: 70
+  word:
+    default: case
+    alternatives:
+    - case
+- num: 71
+  word:
+    default: cat
+    alternatives:
+    - cat
+    - kite
+    - cot
+- num: 72
+  word:
+    default: can
+    alternatives:
+    - can
+    - cane
+    - cone
+- num: 73
+  word:
+    default: comb
+    alternatives:
+    - comb
+- num: 74
+  word:
+    default: car
+    alternatives:
+    - car
+    - core
+- num: 75
+  word:
+    default: call
+    alternatives:
+    - call
+- num: 76
+  word:
+    default: coach
+    alternatives:
+    - coach
+    - catch
+- num: 77
+  word:
+    default: cake
+    alternatives:
+    - cake
+    - coke
+- num: 78
+  word:
+    default: calf
+    alternatives:
+    - cuff
+    - calf
+- num: 79
+  word:
+    default: cup
+    alternatives:
+    - cup
+    - cab
+- num: 80
+  word:
+    default: face
+    alternatives:
+    - face
+- num: 81
+  word:
+    default: fat
+    alternatives:
+    - fat
+    - fart
+    - fight
+- num: 82
+  word:
+    default: fan
+    alternatives:
+    - fan
+    - phone
+- num: 83
+  word:
+    default: fame
+    alternatives:
+    - fame
+    - farm
+- num: 84
+  word:
+    default: fire
+    alternatives:
+    - fair
+    - fire
+- num: 85
+  word:
+    default: file
+    alternatives:
+    - file
+    - foal
+- num: 86
+  word:
+    default: fish
+    alternatives:
+    - fish
+    - fetch
+    - fudge
+- num: 87
+  word:
+    default: fork
+    alternatives:
+    - fork
+    - fake
+- num: 88
+  word:
+    default: fief
+    alternatives:
+    - fuff
+    - fief
+    - faff
+- num: 89
+  word:
+    default: fib
+    alternatives:
+    - fib
+    - fab
+- num: 90
+  word:
+    default: bus
+    alternatives:
+    - base
+    - boss
+    - bus
+- num: 91
+  word:
+    default: bat
+    alternatives:
+    - bat
+    - bite
+    - boat
+- num: 92
+  word:
+    default: bin
+    alternatives:
+    - bin
+    - pan
+    - bone
+- num: 93
+  word:
+    default: palm
+    alternatives:
+    - palm
+    - bum
+- num: 94
+  word:
+    default: bar
+    alternatives:
+    - bar
+    - pore
+- num: 95
+  word:
+    default: bowl
+    alternatives:
+    - bowl
+    - pile
+    - pole
+- num: 96
+  word:
+    default: pitch
+    alternatives:
+    - pitch
+    - batch
+- num: 97
+  word:
+    default: bike
+    alternatives:
+    - bike
+    - pike
+    - puck
+- num: 98
+  word:
+    default: beef
+    alternatives:
+    - beef
+- num: 99
+  word:
+    default: bib
+    alternatives:
+    - bib
+    - pipe
+    - barb

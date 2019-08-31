@@ -1,31 +1,31 @@
 ---
 - number: 0
-  sound: s or z
-  description: This is the description
+  sound: s, z
+  description: The letter s, or z, is the first sound of the word zero.
 - number: 1
-  sound: d or t
-  description: Both d and t have a single downstroke when writing the character.
+  sound: d, t
+  description: Both 'd' and 't' have a single downstroke when writing the character.
 - number: 2
   sound: n
-  description: The letter n has two downstrokes when writing the character.
+  description: The letter 'n' has two downstrokes when writing the character.
 - number: 3
   sound: m
-  description: The letter m has three downstrokes when writing the character.
+  description: The letter 'm' has three downstrokes when writing the character.
 - number: 4
   sound: r
-  description: This is the description
+  description: The letter 'r' is the last letter of the word 'four'.
 - number: 5
   sound: l
-  description: This is the description
+  description: If you spread the 5 fingers of your left hand, the index finger and thumb form an 'L' shape.
 - number: 6
-  sound: g or j
-  description: This is the description
+  sound: ch, j, dg
+  description: The letter 'j' is almost a mirror image of the number 6.
 - number: 7
   sound: k
-  description: This is the description
+  description: The letter 'k' looks like it is formed by 7s stuck together.
 - number: 8
   sound: f
-  description: This is the description
+  description: When handwriting a letter 'f', you loop each end of the character in a similar way you would for the number 8.
 - number: 9
   sound: p or b
-  description: This is the description
+  description: The letter 'p' is a mirror image of 9, and the letter 'b' has rotational symmetry with the number 9.

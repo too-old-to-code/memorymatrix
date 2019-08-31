@@ -17,23 +17,23 @@ const MenuItem = (props) => {
   )
 }
 
-const items = [
+const pages = [
   { name: 'How to use', url: '/' },
   { name: 'Number sounds', url: '/number-sounds' },
+  { name: 'Setup', url: '/setup' },
   { name: 'Matrix', url: '/matrix' },
-  { name: 'Revision', url: '/revision' },
 ]
 
 const NavMenu = (props) => {
   return (
     <Box
       pad={{ left: 'medium', right: 'small', vertical: 'large' }}
-      background="dark-6"
+      background="#6573af"
       fill={true}
       className="app-menu"
     >
       {
-        items.map(item => (
+        pages.map(item => (
           <MenuItem
             url={item.url}
             label={item.name}

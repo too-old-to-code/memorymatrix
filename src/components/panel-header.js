@@ -13,7 +13,7 @@ const PanelHeader = ({item, active}) => {
     >
       <ShinyBall
         size="45"
-        background="dark-1"
+        background="#253473"
       >
         {item.number}
       </ShinyBall>

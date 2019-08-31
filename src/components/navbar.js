@@ -37,7 +37,7 @@ const Navbar = ({location}) => {
       className='navbar'
     >
       {
-        location === '/matrix' && <Box
+        location === '/setup' && <Box
           direction="row"
           align="center"
         >
@@ -63,7 +63,7 @@ const Navbar = ({location}) => {
         </Box>
       }
       {
-        location === '/revision' && <Box
+        location === '/matrix' && <Box
           direction="row"
           align="center"
         >

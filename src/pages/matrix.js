@@ -1,36 +1,63 @@
-import React, { useContext } from "react"
-import WordPane from '../components/word-pane'
-import { Box } from 'grommet'
-import { graphql } from 'gatsby'
+import React, { useContext, useState } from 'react'
+import { Box, Grid, Text } from 'grommet'
 import AppContext from '../app-context'
 
-const Matrix = ({data}) => {
-  const { appState } = useContext(AppContext)
+export default () => {
+  const {appState} = useContext(AppContext)
+  const [ currentWord, changeWord ]= useState('')
 
   return (
     <Box
-      direction="column"
-      fill={true}
-      overflow="scroll"
+      align="center"
+      justify="center"
     >
-    {
-      appState.defaultValues.filter((word) => word.num >= appState.matrixPage && word.num < (appState.matrixPage + 10))
-        .map(word =>
-          <WordPane
-            num={word.num}
-            word={word.value}
-            key={word.num}
-          />
+      <Box
+        height="xsmall"
+        align="center"
+        justify="center"
+      >
+      <Text size="xxlarge">{currentWord}</Text>
+      </Box>
+    <Grid
+      margin={{ horizontal: 'small' }}
+      rows={['xxsmall', 'xxsmall', 'xxsmall', 'xxsmall', 'xxsmall']}
+      columns={['flex', 'flex', 'flex', 'flex', 'flex']}
+      gap="small"
+      justifyContent="center"
+      justify="stretch"
+      style={{minWidth: '300px'}}
+    >
+      {
+        appState.defaultValues.filter((word) => word.num >= appState.revisionPage && word.num < (appState.revisionPage + 25))
+          .map((wordObj, index) =>
+          <Box
+            role="button"
+            key={wordObj.value}
+            align="center"
+            justify="center"
+            background={ currentWord === wordObj.label ?  "orange" : "#6573af" }
+            color="white"
+            border="all"
+            round={true}
+            onClick={() => changeWord(wordObj.label)}
+            activeIndex={index}
+          >
+
+          <Text
+            background="brand"
+            weight="bold"
+          >{wordObj.num}
+          </Text>
+          </Box>
         )
-    }
+      }
+    </Grid>
     </Box>
   )
 }
 
-export default Matrix
-
 export const query = graphql`
-  query matrixPageQuery {
+  query revisionPageQuery {
     allWordsYaml {
       nodes {
         num
@@ -42,4 +69,3 @@ export const query = graphql`
     }
   }
 `
-

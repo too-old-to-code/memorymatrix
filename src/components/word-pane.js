@@ -3,6 +3,13 @@ import { Box, Text } from 'grommet'
 import Creatable from 'react-select/creatable';
 import AppContext from '../app-context'
 
+const customStyles = {
+  option: (provided, state) => ({
+    ...provided,
+    color: state.isSelected ? 'white' : 'grey',
+  })
+}
+
 const WordPane = ({ num, word }) => {
   const {appState, dispatch} = useContext(AppContext)
 
@@ -14,7 +21,7 @@ const WordPane = ({ num, word }) => {
       fill={true}
     >
       <Box
-        background="light-5"
+        background="#6573af"
         direction="row"
         align-content="stretch"
         align="center"
@@ -33,11 +40,12 @@ const WordPane = ({ num, word }) => {
         >
           <Text
             size="xxlarge"
-            color="dark-2"
           >{num}</Text>
         </Box>
-        <Box fill={true}>
+        <Box fill={true} >
           <Creatable
+            hideSelectedOptions={true}
+            styles={customStyles}
             escapeClearsValue={true}
             value={appState.defaultValues[num]}
             onChange={(val) => dispatch({ type: 'change', payload: { val, num }})}

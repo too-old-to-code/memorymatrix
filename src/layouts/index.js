@@ -89,7 +89,7 @@ const Layout = ({ children, location, data }) => {
           // },
           text: {
             extend: {
-              fontFamily: 'sans-serif'
+              fontFamily: 'sans-serif',
             }
           },
           button: {
