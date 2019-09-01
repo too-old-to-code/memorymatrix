@@ -53,20 +53,20 @@ const Navbar = ({location}) => {
         >
           <Box width="40px">
           {
-            appState.matrixPage >= 10 && <FormPrevious
+            appState.matrixPage >= 24 && <FormPrevious
               color="white"
               style={{width: '40px', height: '50px'}}
-              onClick={() => dispatch({type: 'change_matrix_page', payload: -10})}
+              onClick={() => dispatch({type: 'change_matrix_page', payload: -25})}
             />
           }
           </Box>
-          <Text size="large" color="white">{appState.matrixPage}-{appState.matrixPage + 9}</Text>
+          <Text size="large" color="white">{appState.matrixPage}-{appState.matrixPage + 24}</Text>
           <Box width="40px">
           {
-            appState.matrixPage <= 89 && <FormNext
+            appState.matrixPage <= 74 && <FormNext
               color="white"
               style={{width: '40px', height: '50px'}}
-              onClick={() => dispatch({type: 'change_matrix_page', payload: 10})}
+              onClick={() => dispatch({type: 'change_matrix_page', payload: 25})}
             />
           }
           </Box>
@@ -79,20 +79,20 @@ const Navbar = ({location}) => {
         >
           <Box width="40px">
           {
-            appState.setupPage >= 24 && <FormPrevious
+            appState.setupPage >= 10 && <FormPrevious
               color="white"
               style={{width: '40px', height: '50px'}}
-              onClick={() => dispatch({type: 'change_revision_page', payload: -25})}
+              onClick={() => dispatch({type: 'change_revision_page', payload: -10})}
             />
           }
           </Box>
-          <Text size="large" color="white">{appState.setupPage}-{appState.setupPage + 24}</Text>
+          <Text size="large" color="white">{appState.setupPage}-{appState.setupPage + 9}</Text>
           <Box width="40px">
           {
-            appState.setupPage <= 74 && <FormNext
+            appState.setupPage <= 89 && <FormNext
               color="white"
               style={{width: '40px', height: '50px'}}
-              onClick={() => dispatch({type: 'change_revision_page', payload: 25})}
+              onClick={() => dispatch({type: 'change_revision_page', payload: 10})}
             />
           }
           </Box>
