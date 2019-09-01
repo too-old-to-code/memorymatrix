@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import PropTypes from 'prop-types'
 import { Box, Text } from 'grommet'
 import Creatable from 'react-select/creatable';
 import AppContext from '../app-context'
@@ -56,6 +57,11 @@ const WordPane = ({ num, word }) => {
       </Box>
     </Box>
   )
+}
+
+WordPane.propTypes = {
+  num: PropTypes.number,
+  word: PropTypes.string
 }
 
 export default WordPane

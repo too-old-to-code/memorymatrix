@@ -1,10 +1,14 @@
 import React, { useContext } from 'react'
+import PropTypes from 'prop-types'
 import { Box, Layer, Text } from 'grommet'
 import cx from 'classnames'
 import NavMenu from './navmenu'
 import { FormNext, FormPrevious } from 'grommet-icons'
 import Helmet from 'react-helmet'
 import AppContext from '../app-context'
+
+const matrixPageRegex = /.?setup.?/
+const setupPageRegex = /.?matrix.?/
 
 const Navbar = ({location}) => {
   const [show, setShow] = React.useState();
@@ -37,7 +41,7 @@ const Navbar = ({location}) => {
       className='navbar'
     >
       {
-        location === '/setup' && <Box
+        setupPageRegex.test(location) && <Box
           direction="row"
           align="center"
         >
@@ -63,23 +67,23 @@ const Navbar = ({location}) => {
         </Box>
       }
       {
-        location === '/matrix' && <Box
+        matrixPageRegex.test(location) && <Box
           direction="row"
           align="center"
         >
           <Box width="40px">
           {
-            appState.revisionPage >= 24 && <FormPrevious
+            appState.setupPage >= 24 && <FormPrevious
               color="white"
               style={{width: '40px', height: '35px'}}
               onClick={() => dispatch({type: 'change_revision_page', payload: -25})}
             />
           }
           </Box>
-          <Text size="large" color="white">{appState.revisionPage}-{appState.revisionPage + 24}</Text>
+          <Text size="large" color="white">{appState.setupPage}-{appState.setupPage + 24}</Text>
           <Box width="40px">
           {
-            appState.revisionPage <= 74 && <FormNext
+            appState.setupPage <= 74 && <FormNext
               color="white"
               style={{width: '40px', height: '35px'}}
               onClick={() => dispatch({type: 'change_revision_page', payload: 25})}
@@ -107,5 +111,8 @@ const Navbar = ({location}) => {
   )
 }
 
+Navbar.propTypes = {
+  location: PropTypes.string
+}
 
 export default Navbar

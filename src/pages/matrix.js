@@ -28,14 +28,14 @@ export default () => {
       style={{minWidth: '300px'}}
     >
       {
-        appState.defaultValues.filter((word) => word.num >= appState.revisionPage && word.num < (appState.revisionPage + 25))
+        appState.defaultValues.filter((word) => word.num >= appState.matrixPage && word.num < (appState.matrixPage + 25))
           .map((wordObj, index) =>
           <Box
             role="button"
             key={wordObj.value}
             align="center"
             justify="center"
-            background={ currentWord === wordObj.label ?  "orange" : "#6573af" }
+            background={ currentWord === wordObj.label ?  "brand" : "#6573af" }
             color="white"
             border="all"
             round={true}
@@ -57,7 +57,7 @@ export default () => {
 }
 
 export const query = graphql`
-  query revisionPageQuery {
+  query setupPageQuery {
     allWordsYaml {
       nodes {
         num

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Box, Text } from 'grommet'
 import { Add, Subtract } from 'grommet-icons'
 import ShinyBall from './shiny-ball'
@@ -21,6 +22,11 @@ const PanelHeader = ({item, active}) => {
       {active === item.number ? <Subtract/> : <Add />}
     </Box>
   )
+}
+
+PanelHeader.propTypes = {
+  item: PropTypes.string,
+  active: PropTypes.bool
 }
 
 export default PanelHeader

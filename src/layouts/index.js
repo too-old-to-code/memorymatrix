@@ -16,7 +16,7 @@ const createOption = (label, num, isInitial) => ({
 const Layout = ({ children, location, data }) => {
 
   const initialState = {
-    revisionPage: 0,
+    setupPage: 0,
     matrixPage: 0,
     wordOptions: data.allWordsYaml.nodes.map(({word, num}) => word.alternatives.map(a => createOption(a, num, true))),
     defaultValues: data.allWordsYaml.nodes.map(({word, num}, i) => createOption(word.default, num, true))
@@ -27,8 +27,11 @@ const Layout = ({ children, location, data }) => {
       case 'set_defaults':
         return { ...state, defaultValues: payload }
       case 'change_revision_page':
-        return { ...state, revisionPage: state.revisionPage + payload }
+        return { ...state, setupPage: state.setupPage + payload }
       case 'change_matrix_page':
+        console.log(`hello`)
+        console.log(payload)
+        console.log(state.matrixPage)
         return { ...state, matrixPage: state.matrixPage + payload }
       case 'change':{
         const defaultValues = state.defaultValues.slice()

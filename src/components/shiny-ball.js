@@ -1,5 +1,6 @@
 import './shiny-ball.scss'
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Box, Text } from 'grommet'
 
 const ShinyBall = ({ children, size, background, style }) => {
@@ -24,6 +25,14 @@ const ShinyBall = ({ children, size, background, style }) => {
       <Text size="xlarge" weight="bold">{children}</Text>
     </Box>
   )
+}
+
+
+ShinyBall.propTypes = {
+  children: PropTypes.array,
+  size: PropTypes.number,
+  background: PropTypes.string,
+  style: PropTypes.object
 }
 
 export default ShinyBall

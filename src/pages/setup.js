@@ -14,7 +14,7 @@ const Matrix = ({data}) => {
       overflow="scroll"
     >
     {
-      appState.defaultValues.filter((word) => word.num >= appState.matrixPage && word.num < (appState.matrixPage + 10))
+      appState.defaultValues.filter((word) => word.num >= appState.setupPage && word.num < (appState.setupPage + 10))
         .map(word =>
           <WordPane
             num={word.num}

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Box, Text } from 'grommet'
 import { Link } from 'gatsby'
 
@@ -44,6 +45,12 @@ const NavMenu = (props) => {
       }
     </Box>
   )
+}
+
+NavMenu.propTypes = {
+  url: PropTypes.string,
+  handleClick: PropTypes.func,
+  label: PropTypes.string
 }
 
 export default NavMenu
