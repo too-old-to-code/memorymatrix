@@ -29,8 +29,8 @@ const ShinyBall = ({ children, size, background, style }) => {
 
 
 ShinyBall.propTypes = {
-  children: PropTypes.array,
-  size: PropTypes.number,
+  children: PropTypes.number,
+  size: PropTypes.string,
   background: PropTypes.string,
   style: PropTypes.object
 }

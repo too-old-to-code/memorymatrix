@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Memorix`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    title: `Memory Matrix`,
+    description: `Practise a memory technique that will allow you to remember lists and numbers more easily`,
     author: `Andrew Trigg`,
   },
   plugins: [
@@ -16,6 +16,14 @@ module.exports = {
         path: `${__dirname}/src/memory-data`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/markdown-pages`,
+        name: `markdown-pages`,
+      },
+    },
+    `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {

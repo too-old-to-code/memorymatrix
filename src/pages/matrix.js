@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { Box, Grid, Text } from 'grommet'
+import { graphql } from 'gatsby'
 import AppContext from '../app-context'
 
 export default () => {

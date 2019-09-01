@@ -29,9 +29,6 @@ const Layout = ({ children, location, data }) => {
       case 'change_revision_page':
         return { ...state, setupPage: state.setupPage + payload }
       case 'change_matrix_page':
-        console.log(`hello`)
-        console.log(payload)
-        console.log(state.matrixPage)
         return { ...state, matrixPage: state.matrixPage + payload }
       case 'change':{
         const defaultValues = state.defaultValues.slice()

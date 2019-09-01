@@ -1,3 +1,4 @@
+import './navbar.scss'
 import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
 import { Box, Layer, Text } from 'grommet'
@@ -17,13 +18,19 @@ const Navbar = ({location}) => {
   return (
     <>
     <Helmet title="Memory-matrix" />
-    <Box align='center' justify="center" width="36px" height="100%" style={{position: 'fixed', zIndex: 100, top: 0, left: 0, height: '60px', width: '50px'}}>
+    <Box
+      align='center'
+      justify="center"
+      width="36px"
+      height="100%"
+      style={{position: 'fixed', zIndex: 100, top: 0, left: 0, height: '60px', width: '50px'}}
+      onClick={() => setShow(!show)}
+    >
       <button
         className={cx('hamburger hamburger--spin', {'is-active': show})}
         type="button"
         aria-label="Menu"
         aria-controls="navigation"
-        onClick={() => setShow(!show)}
       >
         <span className="hamburger-box">
           <span className="hamburger-inner"></span>
@@ -49,7 +56,7 @@ const Navbar = ({location}) => {
           {
             appState.matrixPage >= 10 && <FormPrevious
               color="white"
-              style={{width: '40px', height: '35px'}}
+              className="nav-buttons"
               onClick={() => dispatch({type: 'change_matrix_page', payload: -10})}
             />
           }
@@ -59,7 +66,7 @@ const Navbar = ({location}) => {
           {
             appState.matrixPage <= 89 && <FormNext
               color="white"
-              style={{width: '40px', height: '35px'}}
+              className="nav-buttons"
               onClick={() => dispatch({type: 'change_matrix_page', payload: 10})}
             />
           }
@@ -75,7 +82,7 @@ const Navbar = ({location}) => {
           {
             appState.setupPage >= 24 && <FormPrevious
               color="white"
-              style={{width: '40px', height: '35px'}}
+              className="nav-buttons"
               onClick={() => dispatch({type: 'change_revision_page', payload: -25})}
             />
           }
@@ -85,7 +92,7 @@ const Navbar = ({location}) => {
           {
             appState.setupPage <= 74 && <FormNext
               color="white"
-              style={{width: '40px', height: '35px'}}
+              className="nav-buttons"
               onClick={() => dispatch({type: 'change_revision_page', payload: 25})}
             />
           }

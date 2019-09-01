@@ -1,4 +1,4 @@
-import React from "react"
+import React from 'react'
 import { Accordion, AccordionPanel, Box } from 'grommet';
 import PanelHeader from '../components/panel-header'
 import { graphql } from 'gatsby'

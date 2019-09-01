@@ -25,8 +25,8 @@ const PanelHeader = ({item, active}) => {
 }
 
 PanelHeader.propTypes = {
-  item: PropTypes.string,
-  active: PropTypes.bool
+  item: PropTypes.object,
+  active: PropTypes.number
 }
 
 export default PanelHeader
