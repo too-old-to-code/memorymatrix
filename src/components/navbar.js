@@ -1,4 +1,3 @@
-import './navbar.scss'
 import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
 import { Box, Layer, Text } from 'grommet'
@@ -56,7 +55,7 @@ const Navbar = ({location}) => {
           {
             appState.matrixPage >= 10 && <FormPrevious
               color="white"
-              className="nav-buttons"
+              style={{width: '40px', height: '50px'}}
               onClick={() => dispatch({type: 'change_matrix_page', payload: -10})}
             />
           }
@@ -66,7 +65,7 @@ const Navbar = ({location}) => {
           {
             appState.matrixPage <= 89 && <FormNext
               color="white"
-              className="nav-buttons"
+              style={{width: '40px', height: '50px'}}
               onClick={() => dispatch({type: 'change_matrix_page', payload: 10})}
             />
           }
@@ -82,7 +81,7 @@ const Navbar = ({location}) => {
           {
             appState.setupPage >= 24 && <FormPrevious
               color="white"
-              className="nav-buttons"
+              style={{width: '40px', height: '50px'}}
               onClick={() => dispatch({type: 'change_revision_page', payload: -25})}
             />
           }
@@ -92,7 +91,7 @@ const Navbar = ({location}) => {
           {
             appState.setupPage <= 74 && <FormNext
               color="white"
-              className="nav-buttons"
+              style={{width: '40px', height: '50px'}}
               onClick={() => dispatch({type: 'change_revision_page', payload: 25})}
             />
           }
